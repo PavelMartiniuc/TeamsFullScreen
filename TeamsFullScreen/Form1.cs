@@ -389,28 +389,26 @@ namespace TeamsFullScreen
 
         private void btTeamsFullscreen_Click(object sender, EventArgs e)
         {
-            /*
+            
             if (this.fsNormal.Checked)
             {
-                this.y = 0;
-                this.x = -120;
-                this.width = 1920;
-                this.height = 1210;
+                //this.y = 0;
+                //this.x = -120;
+                //this.width = 1920;
+                //this.height = 1210;
+                this.y = -90;
+                this.x = -230;
+                this.width = 2020;
+                this.height = 1320;
             }
             if (this.fsZoomed.Checked)
             {
-                this.y = -10;
-                this.x = -160;
-                this.width = 2000;
-                this.height = 1240;
+                this.y = -90;
+                this.x = -230;
+                this.width = 2310;
+                this.height = 1320;
             }
-            */
-            this.y = -90;
-            this.x = -230;
-            this.width = 2020;
-            this.height = 1320;
             
-
             this.MoveWindow();
         }
     }
