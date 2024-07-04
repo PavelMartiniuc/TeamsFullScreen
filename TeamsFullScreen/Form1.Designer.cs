@@ -57,6 +57,8 @@ namespace TeamsFullScreen
             groupBox1 = new GroupBox();
             fsZoomed = new RadioButton();
             fsNormal = new RadioButton();
+            lbProcessname = new Label();
+            txtProcessName = new ComboBox();
             ((ISupportInitialize)gvProcesses).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -345,11 +347,31 @@ namespace TeamsFullScreen
             fsNormal.Text = "Normal";
             fsNormal.UseVisualStyleBackColor = true;
             // 
+            // lbProcessname
+            // 
+            lbProcessname.AutoSize = true;
+            lbProcessname.Location = new Point(474, 16);
+            lbProcessname.Name = "lbProcessname";
+            lbProcessname.Size = new Size(93, 19);
+            lbProcessname.TabIndex = 24;
+            lbProcessname.Text = "Process name";
+            // 
+            // txtProcessName
+            // 
+            txtProcessName.FormattingEnabled = true;
+            txtProcessName.Items.AddRange(new object[] { "firefox", "waterfox" });
+            txtProcessName.Location = new Point(597, 12);
+            txtProcessName.Name = "txtProcessName";
+            txtProcessName.Size = new Size(182, 27);
+            txtProcessName.TabIndex = 25;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 509);
+            Controls.Add(txtProcessName);
+            Controls.Add(lbProcessname);
             Controls.Add(btnFullScreen);
             Controls.Add(btnRefreshProcesses);
             Controls.Add(groupBox1);
@@ -390,5 +412,7 @@ namespace TeamsFullScreen
         private DataGridViewTextBoxColumn Handle;
         private DataGridViewTextBoxColumn Process;
         private DataGridViewTextBoxColumn MainTitle;
+        private Label lbProcessname;
+        private ComboBox txtProcessName;
     }
 }

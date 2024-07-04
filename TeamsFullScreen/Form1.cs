@@ -237,17 +237,19 @@ namespace TeamsFullScreen
         private void Form1_Load(object sender, EventArgs e)
         {
             gvProcesses.AutoGenerateColumns = false;
+            txtProcessName.SelectedIndex = 0;
             RefreshProcesses();
         }
 
         private void RefreshProcesses()
         {
             //this.processs = System.Diagnostics.Process.GetProcessesByName("ms-teams");
-            this.processs = System.Diagnostics.Process.GetProcessesByName("firefox");
+            this.processs = System.Diagnostics.Process.GetProcessesByName(txtProcessName.Text);
+            //this.processs = System.Diagnostics.Process.GetProcessesByName("palemoon");
 
             //  HwndSource.FromHwnd(_windowHandle).AddHook(HwndSourceHookHandler)
 
-            
+
             this.gvProcesses.DataSource = (object)this.processs;
             return;
 
