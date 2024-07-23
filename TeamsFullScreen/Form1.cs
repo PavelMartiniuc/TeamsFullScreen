@@ -244,7 +244,7 @@ namespace TeamsFullScreen
         private void RefreshProcesses()
         {
             //this.processs = System.Diagnostics.Process.GetProcessesByName("ms-teams");
-            this.processs = System.Diagnostics.Process.GetProcessesByName(txtProcessName.Text);
+            this.processs = System.Diagnostics.Process.GetProcessesByName(txtProcessName.Text).OrderByDescending(x => x.MainWindowTitle).ToArray();
             //this.processs = System.Diagnostics.Process.GetProcessesByName("palemoon");
 
             //  HwndSource.FromHwnd(_windowHandle).AddHook(HwndSourceHookHandler)
@@ -285,6 +285,11 @@ namespace TeamsFullScreen
 
         private void btnFullScreen_Click(object sender, EventArgs e)
         {
+            ActivateForFullScreen();
+        }
+
+        private void ActivateForFullScreen()
+        {
             IntPtr selectedHandle = this.SelectedHandle;
             frmMain.ShowWindow(selectedHandle, 1U);
             frmMain.SetForegroundWindow(selectedHandle);
@@ -294,6 +299,8 @@ namespace TeamsFullScreen
             this.y = 0;
             this.MoveWindow();
         }
+
+
         private void MoveWindow()
         {
             frmMain.MoveWindow(this.SelectedHandle, this.y, this.x, this.width, this.height, true);
@@ -391,7 +398,7 @@ namespace TeamsFullScreen
 
         private void btTeamsFullscreen_Click(object sender, EventArgs e)
         {
-            
+            ActivateForFullScreen();
             if (this.fsNormal.Checked)
             {
                 //this.y = 0;
